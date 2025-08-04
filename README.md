@@ -6,9 +6,11 @@ This the source code and SpecStory conversation history for a hero animation vid
 
 ## See It In Action
 
-Watch the final product on YouTube (click the image) which is a 39-second animated video that tells the story of how capturing our intent in software development has evolved from medieval scribes to modern AI-powered development.
+### ▶️ Watch on YouTube
+Click the image below to watch the 39-second animated video that tells the story of how capturing our intent in software development has evolved from medieval scribes to modern AI-powered development.
 
-[![SpecStory Hero Animation](https://img.youtube.com/vi/0mTtPDFm5_I/maxresdefault.jpg)](https://www.youtube.com/watch?v=0mTtPDFm5_I)
+[![SpecStory Hero Animation - Click to Watch on YouTube](https://img.youtube.com/vi/0mTtPDFm5_I/maxresdefault.jpg)](https://www.youtube.com/watch?v=0mTtPDFm5_I)
+*🎥 Click to play on YouTube*
 
 The animation features:
 
