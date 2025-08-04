@@ -1,0 +1,24 @@
+{
+  "name": "specstory-hero-video",
+  "version": "1.0.0",
+  "description": "Remotion hero animation for SpecStory website",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render src/index.tsx HeroVideo out/hero.mp4",
+    "build:webm": "remotion render src/index.tsx HeroVideo out/hero.webm --codec=vp8",
+    "preview": "remotion preview src/index.tsx HeroVideo"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/transitions": "^4.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}
