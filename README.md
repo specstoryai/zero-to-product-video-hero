@@ -46,6 +46,8 @@ This will open the Remotion Studio where you can:
 - Adjust timing and parameters
 - Export individual frames
 
+![Remotion Studio](./remotion_studio.png)
+
 ### Building the Video
 
 To render the final video:
