@@ -1,0 +1,55 @@
+name: Deploy Slidev to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      
+      - name: Setup @antfu/ni
+        run: npm i -g @antfu/ni
+      
+      - name: Install dependencies
+        working-directory: ./lightning-talk-slides
+        run: nci
+      
+      - name: Build Slidev
+        working-directory: ./lightning-talk-slides
+        run: nr build --base /${{github.event.repository.name}}/
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./lightning-talk-slides/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
