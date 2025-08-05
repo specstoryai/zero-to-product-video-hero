@@ -49,10 +49,12 @@ themeConfig:
 .text-accent-red { color: #FE4A49; }
 .text-accent-blue { color: #5EADF2; }
 .bg-accent-blue { background-color: #5EADF2; }
+.bg-vulcan { background-color: #0E131F; }
+.bg-code-background { background-color: #0F131E; }
+.border-code-border { border-color: #242d34; }
 </style>
 
-# Build a Product Video in a Day
-## Agentically
+# Build a Product Video Agentically
 
 <div class="absolute bottom-5 right-5 text-sm opacity-70">
   Greg Ceccarelli • August 2025
@@ -64,13 +66,13 @@ layout: center
 
 # The $10,000 Question
 
-<div class="flex flex-col items-center justify-center">
-  <div v-click class="text-4xl font-bold text-accent-red mb-8">
-    Traditional agency quote: $10,000 for 30 seconds
+<div class="flex flex-col items-center justify-center mt-6">
+  <div v-click class="text-3xl font-bold text-accent-red mb-8">
+    Traditional agencies quote $$$$ for 30 seconds
   </div>
   
-  <div v-click class="text-5xl font-bold text-accent-teal mb-4">
-    I built 39 seconds in 2 hours for $0
+  <div v-click class="text-3xl font-bold text-accent-teal mb-4">
+    I built 39 seconds of video in 2 hours for $0
   </div>
   
   <div v-click class="mt-8">
@@ -98,8 +100,7 @@ name: I'm Greg
 imageSrc: /greg.png
 position: left
 job: Co-founder of SpecStory
-line1: Previously CPO at Pluralsight
-line2: Data at Dropbox, GitHub, Google
+line2: Previously CPO at Pluralsight and Data at Dropbox, GitHub, Google
 social1: "X: @gregce10"
 social2: "greg@specstory.com"
 social3: "specstory.com"
@@ -115,7 +116,7 @@ layout: default
   <div v-click>
     <h2 class="text-accent-yellow mb-4">The Problem</h2>
     <ul>
-      <li>90% of startups need product videos</li>
+      <li>99% of startups need product videos</li>
       <li>&lt;10% can afford professional production</li>
       <li>Traditional editing = weeks of learning</li>
       <li>Hire specialists or do without</li>
@@ -127,7 +128,7 @@ layout: default
     <div class="bg-code-background p-6 rounded-lg border border-code-border">
       <p class="text-xl text-accent-blue">
         What if you could code your videos<br/>
-        like you code your apps?
+        just like you code your apps?
       </p>
     </div>
   </div>
@@ -137,38 +138,42 @@ layout: default
 layout: default
 ---
 
-# Traditional vs. The New Way
+# Traditional vs. A New Way
 
 <div class="grid grid-cols-2 gap-8 mt-10">
   <div v-click>
     <h3 class="text-2xl mb-4 text-accent-red">Traditional Editing</h3>
     <div class="bg-code-background p-6 rounded-lg border border-code-border">
-      <div class="text-6xl mb-4">🎨</div>
-      <p class="text-lg mb-4">Paint pixels on a timeline</p>
+      <div class="flex justify-center gap-2 mb-4">
+        <img src="/tradeditors.jpeg" class="h-24 w-48 rounded-lg" alt="tradeditors" />
+      </div>
+      <p class="text-lg mb-4">Manipulate assets & pixels on a timeline</p>
       <ul class="text-sm">
-        <li>• Keyframes</li>
-        <li>• Render queues</li>
-        <li>• Export → Wait → Repeat</li>
+        <li>Keyframes</li>
+        <li>Render queues</li>
+        <li>Export → Wait → Repeat</li>
       </ul>
     </div>
   </div>
   
   <div v-click>
-    <h3 class="text-2xl mb-4 text-accent-teal">Remotion + AI</h3>
+    <h3 class="text-2xl mb-4 text-accent-teal">Remotion.dev + Claude Code</h3>
     <div class="bg-code-background p-6 rounded-lg border border-code-border">
-      <div class="text-6xl mb-4">🧩</div>
+      <div class="flex justify-center gap-2 mb-4">
+        <img src="/react.png" class="h-24 w-auto rounded-lg" alt="React Components" />
+      </div>
       <p class="text-lg mb-4">Write React components</p>
       <ul class="text-sm">
-        <li>• Hot reload</li>
-        <li>• Version control</li>
-        <li>• Deploy → Ship → Scale</li>
+        <li>Hot reload</li>
+        <li>Version control</li>
+        <li>Iterate → Deploy → Promote</li>
       </ul>
     </div>
   </div>
 </div>
 
 <div v-click class="text-center mt-10 text-2xl font-bold text-accent-yellow">
-  Videos are just functions of time
+  Videos = Components + Time
 </div>
 
 ---
@@ -177,28 +182,33 @@ layout: center
 
 # What is Remotion?
 
-<div class="text-center">
-  <h2 class="text-4xl font-bold mb-8 text-accent-blue">React for Videos</h2>
-  
-  <div class="bg-code-background p-8 rounded-lg border border-code-border max-w-3xl mx-auto">
-    ```jsx
-    const frame = useCurrentFrame();
-    const opacity = interpolate(frame, [0, 30], [0, 1]);
-    
-    // Frame 0: opacity = 0 (invisible)
-    // Frame 15: opacity = 0.5 (half visible)  
-    // Frame 30: opacity = 1 (fully visible)
-    ```
-  </div>
-  
-  <p v-click class="mt-8 text-xl">
+<h2 class="text-center text-4xl font-bold mb-8 text-accent-blue">React for Videos</h2>
+
+```jsx {2-3|5-7|all}
+// Every frame is just a React render
+const frame = useCurrentFrame();
+const opacity = interpolate(frame, [0, 30], [0, 1]);
+
+// Frame 0: opacity = 0 (invisible)
+// Frame 15: opacity = 0.5 (half visible)  
+// Frame 30: opacity = 1 (fully visible)
+
+return <div style={{ opacity }}>Your content</div>
+```
+
+<v-clicks>
+
+<div class="text-center mt-8">
+  <p class="text-xl mb-4">
     Every frame = React render at time T
   </p>
   
-  <p v-click class="mt-4 text-2xl font-bold text-accent-teal">
+  <p class="text-2xl font-bold text-accent-teal">
     If you know React, you already know Remotion
   </p>
 </div>
+
+</v-clicks>
 
 <!--
 Core concept: Videos are React components rendered over time.
@@ -211,37 +221,37 @@ layout: default
 
 # The Magic Formula
 
-<div class="flex items-center justify-center h-full">
-  <div class="text-center">
-    <div class="flex items-center justify-center space-x-8 mb-12">
-      <div v-click>
-        <div class="w-32 h-32 bg-accent-blue rounded-lg flex items-center justify-center text-6xl font-bold">
-          R
-        </div>
-        <p class="mt-2 font-bold">Remotion</p>
-      </div>
-      
-      <div v-click class="text-6xl">+</div>
-      
-      <div v-click>
-        <img src="/claude-logo.svg" class="w-32 h-32 bg-white rounded-lg p-4" />
-        <p class="mt-2 font-bold">Claude Code</p>
-      </div>
-    </div>
-    
-    <div v-click class="bg-code-background p-6 rounded-lg border border-code-border max-w-2xl mx-auto">
-      <h3 class="text-xl font-bold mb-4 text-accent-yellow">Natural Language → Video Changes</h3>
-      <div class="text-left space-y-2">
-        <p><span class="text-accent-blue">"make it bigger"</span> → logo size adjustment</p>
-        <p><span class="text-accent-blue">"a little slower"</span> → timing refinement</p>
-        <p><span class="text-accent-blue">"sorry it should count up from 90%"</span> → instant fix</p>
-      </div>
-    </div>
-    
-    <p v-click class="mt-8 text-xl text-accent-teal">
-      Conversational development for visual creation
-    </p>
-  </div>
+<div class="mt-8">
+
+<div v-click="1" class="flex items-center justify-center gap-4 mb-10">
+<img src="/remotion.png" class="w-32 h-32 rounded-2xl object-contain" alt="Remotion" />
+<div class="text-4xl font-bold text-accent-yellow">+</div>
+<img src="/claudecode.png" class="w-32 h-32 rounded-2xl object-contain" alt="Claude Code" />
+<div class="text-4xl font-bold text-accent-teal">=</div>
+<div v-click="2" class="text-3xl font-bold text-accent-yellow ml-4">
+Conversational Development
+</div>
+</div>
+
+<h3 v-click="3" class="text-2xl font-bold mb-6 text-center text-accent-yellow">Natural Language → Video</h3>
+
+<div class="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
+<div v-click="4" class="bg-code-background p-4 rounded-lg border border-code-border">
+<p class="text-accent-blue font-mono text-sm">"make it bigger"</p>
+<p class="text-gray-300 mt-2 text-sm">→ logo size adjustment</p>
+</div>
+
+<div v-click="5" class="bg-code-background p-4 rounded-lg border border-code-border">
+<p class="text-accent-blue font-mono text-sm">"a little slower"</p>
+<p class="text-gray-300 mt-2 text-sm">→ timing refinement</p>
+</div>
+
+<div v-click="6" class="bg-code-background p-4 rounded-lg border border-code-border">
+<p class="text-accent-blue font-mono text-sm">"count up from 90%"</p>
+<p class="text-gray-300 mt-2 text-sm">→ instant fix</p>
+</div>
+</div>
+
 </div>
 
 ---
@@ -253,27 +263,30 @@ layout: default
 <div class="grid grid-cols-2 gap-6">
   <div v-click class="bg-code-background p-4 rounded-lg border border-code-border">
     <h3 class="font-bold mb-2 text-accent-blue">Product Demos</h3>
-    <img src="/specstory-demo.jpg" class="w-full rounded" />
-    <p class="text-sm mt-2">SpecStory hero video - 39 seconds, 2 hours</p>
+    <video 
+      autoplay 
+      muted 
+      loop 
+      class="w-full h-54 rounded object-cover"
+    >
+      <source src="/video.mp4" type="video/mp4">
+    </video>
+    <p class="text-sm mt-2">tny.dev: A product demo I made using Remotion.dev</p>
   </div>
   
   <div v-click class="bg-code-background p-4 rounded-lg border border-code-border">
     <h3 class="font-bold mb-2 text-accent-teal">SaaS Intros</h3>
-    <div class="bg-vulcan h-32 rounded flex items-center justify-center text-gray-500">Typeframes Screenshot</div>
-    <p class="text-sm mt-2">Typeframes - Text to video at scale</p>
+    <video 
+      autoplay 
+      muted 
+      loop 
+      class="w-full h-54 rounded object-cover"
+    >
+      <source src="/AtriaAIDemo-3.mp4" type="video/mp4">
+    </video>
+    <p class="text-sm mt-2">Atria-AI: An intro on a website a friend made for their legal tech startup</p>
   </div>
   
-  <div v-click class="bg-code-background p-4 rounded-lg border border-code-border">
-    <h3 class="font-bold mb-2 text-accent-yellow">Music Visualizations</h3>
-    <div class="bg-vulcan h-32 rounded flex items-center justify-center text-gray-500">Music Visualization</div>
-    <p class="text-sm mt-2">Dynamic audio-reactive animations</p>
-  </div>
-  
-  <div v-click class="bg-code-background p-4 rounded-lg border border-code-border">
-    <h3 class="font-bold mb-2 text-accent-red">Personalized at Scale</h3>
-    <div class="bg-vulcan h-32 rounded flex items-center justify-center text-gray-500">Personalized Video</div>
-    <p class="text-sm mt-2">1000s of variants from one template</p>
-  </div>
 </div>
 
 <p v-click class="text-center mt-8 text-xl font-bold text-accent-teal">
@@ -286,35 +299,52 @@ layout: default
 
 # Core Remotion Concepts
 
-<div class="bg-code-background p-6 rounded-lg border border-code-border">
-  ```jsx
-  // 1. Composition - Your video container
-  <Composition
-    id="HeroVideo"
-    component={HeroAnimation}
-    durationInFrames={1170}  // 39 seconds at 30fps
-    fps={30}
-    width={1920}
-    height={1080}
-  />
-  
-  // 2. Hooks - Access time information
-  const frame = useCurrentFrame();
-  const {fps, durationInFrames} = useVideoConfig();
-  
-  // 3. Sequences - Organize your scenes
-  <Series>
-    <Series.Sequence durationInFrames={150}>
-      <VideoIntro />
-    </Series.Sequence>
-    <Series.Sequence durationInFrames={120}>
-      <TimeTransition />
-    </Series.Sequence>
-  </Series>
-  ```
+```jsx {monaco} {height: '400px'}
+// 1. Composition - Your video container
+<Composition
+  id="HeroVideo"
+  component={HeroAnimation}
+  durationInFrames={1170}  // 39 seconds at 30fps
+  fps={30}
+  width={1920}
+  height={1080}
+/>
+
+// 2. Hooks - Access time information
+const frame = useCurrentFrame();
+const {fps, durationInFrames} = useVideoConfig();
+
+// 3. Sequences - Organize your scenes
+<Series>
+  <Series.Sequence durationInFrames={150}>
+    <VideoIntro />
+  </Series.Sequence>
+  <Series.Sequence durationInFrames={120}>
+    <TimeTransition />
+  </Series.Sequence>
+</Series>
+```
+
+<v-clicks>
+
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+  <div class="bg-code-background p-3 rounded border border-code-border">
+    <h4 class="font-bold text-accent-blue mb-2">Composition</h4>
+    <p>Your video container - defines fps, dimensions, duration</p>
+  </div>
+  <div class="bg-code-background p-3 rounded border border-code-border">
+    <h4 class="font-bold text-accent-teal mb-2">Hooks</h4>
+    <p>Access current frame and video config in any component</p>
+  </div>
+  <div class="bg-code-background p-3 rounded border border-code-border">
+    <h4 class="font-bold text-accent-yellow mb-2">Sequences</h4>
+    <p>Organize scenes with precise timing control</p>
+  </div>
 </div>
 
-<p v-click class="text-center mt-8 text-xl text-accent-yellow">
+</v-clicks>
+
+<p v-click class="text-center mt-6 text-xl font-bold text-accent-yellow">
   Think components, not keyframes
 </p>
 
