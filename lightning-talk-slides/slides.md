@@ -172,7 +172,7 @@ layout: default
   </div>
 </div>
 
-<div v-click class="text-center mt-10 text-2xl font-bold text-accent-yellow">
+<div v-click class="text-center mt-4 text-2xl font-bold text-accent-yellow">
   Videos = Components + Time
 </div>
 
@@ -299,54 +299,79 @@ layout: default
 
 # Core Remotion Concepts
 
-```jsx {monaco} {height: '400px'}
-// 1. Composition - Your video container
+<h2 class="text-center text-3xl font-bold mb-8 text-accent-blue">Think Components, Not Keyframes</h2>
+
+<div class="grid grid-cols-3 gap-6">
+
+<div v-click>
+<div class="bg-code-background p-4 rounded-lg border border-code-border h-full flex flex-col">
+<h3 class="text-xl font-bold text-accent-blue mb-4">📦 Composition</h3>
+
+<div class="flex-grow">
+```jsx {1-8|3-6}
 <Composition
   id="HeroVideo"
   component={HeroAnimation}
-  durationInFrames={1170}  // 39 seconds at 30fps
+  durationInFrames={1170}
   fps={30}
   width={1920}
   height={1080}
 />
+```
+</div>
 
-// 2. Hooks - Access time information
+<p class="text-sm mt-3 text-gray-300">Your video container with fps, dimensions, duration</p>
+</div>
+</div>
+
+<div v-click>
+<div class="bg-code-background p-4 rounded-lg border border-code-border h-full flex flex-col">
+<h3 class="text-xl font-bold text-accent-teal mb-4">🪝 Hooks</h3>
+
+<div class="flex-grow">
+```jsx {1-8|1-2|5-7}
 const frame = useCurrentFrame();
-const {fps, durationInFrames} = useVideoConfig();
+const {fps} = useVideoConfig();
 
-// 3. Sequences - Organize your scenes
+// Use frame for animations
+const opacity = interpolate(
+  frame, [0, 30], [0, 1]
+);
+```
+</div>
+
+<p class="text-sm mt-3 text-gray-300">Access time information in any component</p>
+</div>
+</div>
+
+<div v-click>
+<div class="bg-code-background p-4 rounded-lg border border-code-border h-full flex flex-col">
+<h3 class="text-xl font-bold text-accent-yellow mb-4">🎬 Sequences</h3>
+
+<div class="flex-grow">
+```jsx {1-8|2-4|5-7}
 <Series>
   <Series.Sequence durationInFrames={150}>
     <VideoIntro />
   </Series.Sequence>
   <Series.Sequence durationInFrames={120}>
-    <TimeTransition />
+    <ProductDemo />
   </Series.Sequence>
 </Series>
 ```
-
-<v-clicks>
-
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-  <div class="bg-code-background p-3 rounded border border-code-border">
-    <h4 class="font-bold text-accent-blue mb-2">Composition</h4>
-    <p>Your video container - defines fps, dimensions, duration</p>
-  </div>
-  <div class="bg-code-background p-3 rounded border border-code-border">
-    <h4 class="font-bold text-accent-teal mb-2">Hooks</h4>
-    <p>Access current frame and video config in any component</p>
-  </div>
-  <div class="bg-code-background p-3 rounded border border-code-border">
-    <h4 class="font-bold text-accent-yellow mb-2">Sequences</h4>
-    <p>Organize scenes with precise timing control</p>
-  </div>
 </div>
 
-</v-clicks>
+<p class="text-sm mt-3 text-gray-300">Organize scenes with precise timing</p>
+</div>
+</div>
 
-<p v-click class="text-center mt-6 text-xl font-bold text-accent-yellow">
-  Think components, not keyframes
+</div>
+
+<div v-click class="text-center mt-8 bg-code-background p-4 rounded-lg border border-code-border max-w-2xl mx-auto">
+<p class="text-xl font-bold text-accent-yellow">
+  Just like building a React app, but each render is a video frame
 </p>
+</div>
 
 <!--
 Interactive slide - go through each concept
@@ -359,71 +384,69 @@ layout: default
 
 # The Development Experience
 
-<div class="grid grid-cols-2 gap-8">
-  <div>
-    <h2 class="mb-6 text-accent-blue">Remotion Studio</h2>
-    
-    <div v-click class="mb-4">
-      <span class="text-accent-teal text-xl">✅</span> <strong>Hot reload your video</strong>
-      <p class="text-sm opacity-70 ml-7">Change code → See video update instantly</p>
-    </div>
+<div class="grid grid-cols-3 gap-8">
+<div class="col-span-1">
+<h2 class="mb-6 text-accent-blue">Remotion Studio</h2>
 
-    <div v-click class="mb-4">
-      <span class="text-accent-teal text-xl">✅</span> <strong>React DevTools</strong>
-      <p class="text-sm opacity-70 ml-7">Debug frames like components</p>
-    </div>
-
-    <div v-click class="mb-4">
-      <span class="text-accent-teal text-xl">✅</span> <strong>Version control</strong>
-      <p class="text-sm opacity-70 ml-7">Git for your videos</p>
-    </div>
-
-    <div v-click class="mb-4">
-      <span class="text-accent-teal text-xl">✅</span> <strong>No render queues</strong>
-      <p class="text-sm opacity-70 ml-7">See changes immediately</p>
-    </div>
-  </div>
-  
-  <div v-click class="flex items-center">
-    <div class="bg-code-background p-6 rounded-lg border border-code-border">
-      <h3 class="text-xl font-bold mb-4 text-accent-yellow">Remotion Studio</h3>
-      <p class="text-sm">
-        A browser-based development environment where your video updates in real-time as you code.
-      </p>
-      <p class="text-sm mt-4 text-accent-blue">
-        Think of it as localhost:3000 but for videos.
-      </p>
-    </div>
-  </div>
+<div v-click="1" class="mb-4">
+<span class="text-accent-teal text-xl">✅</span> <strong>Hot reload your video</strong>
+<p class="text-sm opacity-70 ml-7">Change code → See video update instantly</p>
 </div>
 
-<p v-click class="text-center mt-8 text-lg font-bold text-accent-teal">
-  It's just like building a website
+<div v-click="2" class="mb-4">
+<span class="text-accent-teal text-xl">✅</span> <strong>React DevTools</strong>
+<p class="text-sm opacity-70 ml-7">Debug frames like components</p>
+</div>
+
+<div v-click="3" class="mb-4">
+<span class="text-accent-teal text-xl">✅</span> <strong>Version control</strong>
+<p class="text-sm opacity-70 ml-7">Git for your videos</p>
+</div>
+
+<div v-click="4" class="mb-4">
+<span class="text-accent-teal text-xl">✅</span> <strong>No render queues</strong>
+<p class="text-sm opacity-70 ml-7">See changes immediately</p>
+</div>
+</div>
+
+<div v-click="5" class="col-span-2 relative flex items-center justify-center">
+<img src="/remotion_studio.png" class="rounded-lg shadow-2xl w-full h-full object-cover" alt="Remotion Studio Interface" />
+<div v-click="6" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-code-background/95 backdrop-blur-sm p-4 rounded-lg border border-code-border shadow-xl">
+<p class="text-lg font-bold text-accent-yellow">
+Localhost:3000<br/>now for videos
+</p>
+</div>
+</div>
+</div>
+
+<p v-click="7" class="text-center mt-8 text-lg font-bold text-accent-teal">
+It's just like building a website
 </p>
 
 ---
 layout: center
 ---
 
-# Getting Started in 3 Commands
+# Getting Started in 2 Commands
 
 <div class="text-center">
-  <div class="bg-code-background p-8 rounded-lg border border-code-border text-2xl inline-block">
-    ```bash
-    npm init video
-    npm start
-    # Start building! 🚀
-    ```
+  <div class="flex justify-center text-2xl">
+    <div class="text-left">
+```bash {1|2}
+npx create-video@latest
+npm run dev
+```
+    </div>
   </div>
   
   <p v-click class="mt-12 text-3xl font-bold text-accent-yellow">
-    You're 3 commands away from your first video
+    You're 2 commands away from your first video
   </p>
   
   <div v-click class="mt-8 grid grid-cols-2 gap-4 max-w-2xl mx-auto">
     <div class="bg-code-background p-4 rounded border border-code-border">
       <p class="font-bold text-accent-teal">Required:</p>
-      <p>Basic React knowledge</p>
+      <p>A Little React and AI</p>
     </div>
     <div class="bg-code-background p-4 rounded border border-code-border">
       <p class="font-bold text-accent-red">Not Required:</p>
@@ -439,23 +462,18 @@ layout: center
 # Let's Build Something Together!
 
 <div class="text-center">
-  <h2 class="text-3xl mb-8 text-accent-teal">Live Demo Time 🎬</h2>
-  
-  <div class="bg-code-background p-6 rounded-lg border border-code-border max-w-2xl mx-auto mb-8">
-    <p class="text-xl mb-4">We'll make a simple change together:</p>
-    <p class="text-2xl font-mono text-accent-blue">"make the logo bigger"</p>
-  </div>
+  <h2 class="text-3xl mb-8 mt-8 text-accent-teal">Live Demo Time 🎬</h2>
   
   <div v-click class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
     <div class="bg-code-background p-4 rounded border border-code-border">
       <p class="font-bold mb-2 text-accent-yellow">GitHub Repo</p>
-      <div class="w-32 h-32 mx-auto bg-white rounded flex items-center justify-center text-black font-mono text-xs">QR Code</div>
-      <p class="text-xs mt-2">zero-to-product-video-hero</p>
+      <img src="/qr-zero-to-product-hero.png" class="w-32 h-32 mx-auto rounded" alt="QR Code for GitHub Repo" />
+      <a href="https://get.specstory.com/zero-to-product-hero" class="text-sm mt-2 block hover:text-accent-yellow font-mono">get.specstory.com/zero-to-product-hero</a>
     </div>
     <div class="bg-code-background p-4 rounded border border-code-border">
       <p class="font-bold mb-2 text-accent-yellow">Full Article</p>
-      <div class="w-32 h-32 mx-auto bg-white rounded flex items-center justify-center text-black font-mono text-xs">QR Code</div>
-      <p class="text-xs mt-2">gregceccarelli.com</p>
+      <img src="/qr-build-product-video-with-ai.png" class="w-32 h-32 mx-auto rounded" alt="QR Code for Article" />
+      <a href="https://get.specstory.com/build-product-video-with-ai" class="text-sm mt-2 block hover:text-accent-yellow font-mono">get.specstory.com/build-product-video-with-ai</a>
     </div>
   </div>
 </div>
@@ -477,7 +495,7 @@ layout: center
     <div v-click class="bg-code-background p-6 rounded-lg border border-code-border">
       <div class="text-4xl mb-4">📚</div>
       <h3 class="font-bold mb-2 text-accent-blue">Learn</h3>
-      <p class="text-sm">remotion.dev/docs</p>
+      <a href="https://remotion.dev/docs" class="text-sm hover:text-accent-blue">remotion.dev/docs</a>
     </div>
     <div v-click class="bg-code-background p-6 rounded-lg border border-code-border">
       <div class="text-4xl mb-4">🛠</div>
@@ -491,10 +509,12 @@ layout: center
     </div>
   </div>
   
-  <div v-click class="bg-code-background p-6 rounded-lg border border-code-border">
-    <h3 class="text-2xl font-bold mb-4 text-accent-yellow">What's Next in 2025?</h3>
-    <p>Claude Opus 4 • Veo 3 • Sora • Even better tools</p>
-    <p class="mt-4 text-xl font-bold text-accent-teal">The tools are only getting better</p>
+  <div v-click class="bg-accent-blue text-black p-6 rounded-lg shadow-xl">
+    <h3 class="text-2xl font-bold mb-3">📸 Chronicle Your Journey</h3>
+    <p class="text-lg mb-2">Download SpecStory to capture your coding sessions</p>
+    <a href="https://get.specstory.com/extension" class="text-xl font-mono font-bold underline hover:text-gray-800">
+      get.specstory.com/extension
+    </a>
   </div>
   
   <p v-click class="mt-8 text-3xl font-bold text-accent-teal text-center">
@@ -503,23 +523,38 @@ layout: center
 </div>
 
 ---
-layout: end
-class: text-center
+layout: center
 ---
 
-# Thank You!
+# Thank You! 🎉
 
-<div class="text-center">
-  <p class="text-2xl mb-8 text-accent-yellow">Questions? Let's discuss!</p>
-  
-  <div class="flex justify-center space-x-8">
-    <div>
-      <p class="font-bold text-accent-blue">GitHub</p>
-      <p>@specstoryai</p>
-    </div>
-    <div>
-      <p class="font-bold text-accent-teal">Website</p>
-      <p>gregceccarelli.com</p>
-    </div>
-  </div>
+<div class="bg-code-background p-8 rounded-lg border border-code-border max-w-2xl mx-auto">
+<h2 class="text-3xl mb-8 text-accent-yellow font-bold text-center">Follow Us & Stay Connected!</h2>
+
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div class="bg-vulcan p-6 rounded-lg text-center">
+<div class="text-4xl mb-3">💼</div>
+<p class="font-bold text-accent-blue text-xl mb-2">LinkedIn</p>
+<a href="https://linkedin.com/company/specstory" class="text-lg hover:text-accent-blue hover:underline transition-all">@specstory</a>
 </div>
+
+<div class="bg-vulcan p-6 rounded-lg text-center">
+<div class="text-4xl mb-3">🐦</div>
+<p class="font-bold text-accent-teal text-xl mb-2">Twitter</p>
+<a href="https://twitter.com/specstoryai" class="text-lg hover:text-accent-teal hover:underline transition-all">@specstoryai</a>
+</div>
+</div>
+
+<div class="border-t border-gray-700 pt-6 text-center">
+<p class="text-xl text-accent-yellow font-semibold mb-3">
+📧 Reach out with any questions!
+</p>
+<a href="https://join.slack.com/t/specstory/shared_invite/zt-2vq0274ck-MYS39rgOpDSmgfE1IeK9gg" class="text-lg text-accent-teal hover:text-accent-blue hover:underline transition-all">
+💬 Join our Slack community
+</a>
+</div>
+</div>
+
+<p class="text-lg text-gray-400 mt-8 text-center">
+Build something amazing this week 🚀
+</p>
