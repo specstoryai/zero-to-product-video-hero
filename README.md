@@ -13,7 +13,7 @@ This the source code and SpecStory conversation history for a hero animation vid
 Learn how to build product videos agentically with Remotion and Claude Code in this Maven lightning lesson:
 
 - **📊 [View the Lightning Lesson Slides](https://specstoryai.github.io/zero-to-product-video-hero/)** - Interactive Slidev presentation covering everything from traditional video editing to building videos with code
-- **🎥 Lightning Lesson Recording** - *Coming soon!*
+- **🎥 [Lightning Lesson Recording](https://www.youtube.com/watch?v=2riqInPzpTU) - Watch it on youtube!
 
 The presentation and lesson was given on 8/6/2025 at 1 PM ET. It covers going from "zero to one" using AI tools to create professional product videos in hours instead of weeks.
 
