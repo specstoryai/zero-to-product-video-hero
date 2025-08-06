@@ -4,6 +4,20 @@
 
 This the source code and SpecStory conversation history for a hero animation video built with [Remotion](https://www.remotion.dev/) that showcases the evolution from traditional development to modern AI-assisted development. The project demonstrates how AI tools like Claude, Copilot, and Cursor are transforming the developer experience and how [SpecStory helps you save your conversation history](https://get.specstory.com/extension).
 
+## 🎓 Maven Lightning Lesson
+
+<div align="left">
+  <img src="./mavenlogo.png" alt="Maven Logo" width="200" />
+</div>
+
+Learn how to build product videos agentically with Remotion and Claude Code in this Maven lightning lesson:
+
+- **📊 [View the Lightning Lesson Slides](https://specstoryai.github.io/zero-to-product-video-hero/)** - Interactive Slidev presentation covering everything from traditional video editing to building videos with code
+- **🎥 Lightning Lesson Recording** - *Coming soon!*
+
+The presentation and lesson was given on 8/6/2025 at 1 PM ET. It covers going from "zero to one" using AI tools to create professional product videos in hours instead of weeks.
+
+
 ## See It In Action
 
 ### ▶️ Watch on YouTube
@@ -105,10 +119,18 @@ zero-to-product-video-hero/
 │   ├── package.json
 │   ├── tsconfig.json
 │   └── README.md
+├── lightning-talk-slides/     # Maven lightning lesson Slidev presentation
+│   ├── slides.md             # Main presentation file
+│   ├── public/               # Presentation assets
+│   │   ├── qr-*.png         # QR codes for links
+│   │   ├── remotion_studio.png
+│   │   └── ...
+│   └── package.json
 ├── plan.md                    # Original video script/plan
 ├── 2025-07-28_16-59-14Z-in-at-my-app.md         # Build chat history 1
 ├── 2025-07-28_20-14-15Z-chat-history-to-build-remotion.md  # Build chat history 2
 ├── example/                   # Another Remotion example project I had created for tny.dev that helped me bootstrap this one
+├── mavenlogo.png             # Maven logo
 └── README.md                  # This file
 ```
 
