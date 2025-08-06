@@ -67,6 +67,17 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({
     }
   );
   
+  // Apple-style subtle blur effect
+  const blurAmount = interpolate(
+    frame,
+    [0, 30, 120, 150],
+    [20, 0, 0, 10],
+    {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp'
+    }
+  );
+  
   // SpecStory logo animation - appears before second text
   const iconSpring = spring({
     fps,
@@ -101,13 +112,15 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({
         }}
       />
       
-      {/* Dark overlay for better text contrast */}
+      {/* Apple-style gradient overlay */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)',
-          opacity
+          background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.3) 100%)',
+          opacity,
+          backdropFilter: `blur(${blurAmount}px)`,
+          WebkitBackdropFilter: `blur(${blurAmount}px)`
         }}
       />
       
@@ -121,72 +134,147 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({
           padding: 60
         }}
       >
-        {/* First text: "We've always preserved our intent" */}
-        <h1
-          style={{
-            position: 'absolute',
-            fontFamily: typography.fonts.outfit,
-            fontSize: typography.sizes['6xl'],
-            color: colors.text.inverse,
-            fontWeight: 800,
-            letterSpacing: '-0.02em',
-            textShadow: '0 4px 20px rgba(0,0,0,0.8)',
-            transform: `scale(${firstTextSpring}) translateY(${frame > 75 ? (frame - 75) * (frame - 75) * 0.5 : 0}px)`,
-            opacity: firstTextOpacity,
-            whiteSpace: 'nowrap'
-          }}
-        >
-          We've always preserved our intent
-        </h1>
-        
-        {/* Second text: "What makes today any different?" */}
-        <h1
-          style={{
-            position: 'absolute',
-            fontFamily: typography.fonts.outfit,
-            fontSize: typography.sizes['6xl'],
-            color: colors.text.inverse,
-            fontWeight: 800,
-            letterSpacing: '-0.02em',
-            textShadow: '0 4px 20px rgba(0,0,0,0.8)',
-            transform: `scale(${secondTextSpring}) translateY(${frame > 140 ? (frame - 140) * (frame - 140) * 0.5 : 0}px)`,
-            opacity: secondTextOpacity,
-            whiteSpace: 'nowrap'
-          }}
-        >
-          What makes today any different?
-        </h1>
-        
-        {/* SpecStory logo - positioned above second text */}
+        {/* First text: "We've always preserved our intent" - Apple style */}
         <div
           style={{
             position: 'absolute',
-            top: '30%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 8,
+            transform: `scale(${firstTextSpring}) translateY(${frame > 75 ? (frame - 75) * (frame - 75) * 0.3 : 0}px)`,
+            opacity: firstTextOpacity,
+          }}
+        >
+          <h1
+            style={{
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif',
+              fontSize: 80,
+              color: '#f5f5f7',
+              fontWeight: 600,
+              letterSpacing: '-0.003em',
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              whiteSpace: 'nowrap',
+              lineHeight: 1.08365,
+              textAlign: 'center',
+              margin: 0
+            }}
+          >
+            We've always preserved
+          </h1>
+          <h1
+            style={{
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif',
+              fontSize: 80,
+              color: '#f5f5f7',
+              fontWeight: 600,
+              letterSpacing: '-0.003em',
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              whiteSpace: 'nowrap',
+              lineHeight: 1.08365,
+              textAlign: 'center',
+              margin: 0,
+              background: 'linear-gradient(90deg, #f5f5f7 0%, #86868b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
+            our intent.
+          </h1>
+        </div>
+        
+        {/* Second text: "What makes today any different?" - Apple style */}
+        <div
+          style={{
+            position: 'absolute',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 12,
+            transform: `scale(${secondTextSpring}) translateY(${frame > 140 ? (frame - 140) * (frame - 140) * 0.3 : 0}px)`,
+            opacity: secondTextOpacity,
+          }}
+        >
+          <h1
+            style={{
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif',
+              fontSize: 72,
+              color: '#86868b',
+              fontWeight: 400,
+              letterSpacing: '0.004em',
+              textShadow: '0 1px 5px rgba(0,0,0,0.2)',
+              whiteSpace: 'nowrap',
+              lineHeight: 1.1,
+              textAlign: 'center',
+              margin: 0
+            }}
+          >
+            What makes today
+          </h1>
+          <h1
+            style={{
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif',
+              fontSize: 72,
+              fontWeight: 600,
+              letterSpacing: '-0.003em',
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              whiteSpace: 'nowrap',
+              lineHeight: 1.08365,
+              textAlign: 'center',
+              margin: 0,
+              background: 'linear-gradient(90deg, #0071e3 0%, #00d4ff 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
+            any different?
+          </h1>
+        </div>
+        
+        {/* SpecStory logo - Apple style presentation */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '28%',
             opacity: iconOpacity,
-            transform: `scale(${iconSpring}) translateY(${frame > 140 ? (frame - 140) * (frame - 140) * 0.5 : 0}px)`,
+            transform: `scale(${iconSpring}) translateY(${frame > 140 ? (frame - 140) * (frame - 140) * 0.3 : 0}px)`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: 20
           }}
         >
-          <Img
-            src={staticFile('specstorylogo-inverted.svg')}
+          <div
             style={{
-              width: 600,
-              height: 'auto',
-              filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.8))'
+              padding: '40px 60px',
+              background: 'rgba(255, 255, 255, 0.08)',
+              backdropFilter: 'blur(40px)',
+              WebkitBackdropFilter: 'blur(40px)',
+              borderRadius: 24,
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 4px 24px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
             }}
-          />
+          >
+            <Img
+              src={staticFile('specstorylogo-inverted.svg')}
+              style={{
+                width: 500,
+                height: 'auto',
+                filter: 'brightness(1.1) contrast(1.05)'
+              }}
+            />
+          </div>
         </div>
       </AbsoluteFill>
       
-      {/* Fade to black for smooth transition */}
+      {/* Apple-style fade transition */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: '#000000',
+          background: 'radial-gradient(circle at center, rgba(0,0,0,0.95) 0%, #000000 100%)',
           opacity: interpolate(
             frame,
             [(endAt || 150) - 15, endAt || 150],
@@ -195,7 +283,9 @@ export const VideoIntro: React.FC<VideoIntroProps> = ({
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp'
             }
-          )
+          ),
+          backdropFilter: `blur(${interpolate(frame, [(endAt || 150) - 15, endAt || 150], [0, 20])}px)`,
+          WebkitBackdropFilter: `blur(${interpolate(frame, [(endAt || 150) - 15, endAt || 150], [0, 20])}px)`
         }}
       />
     </AbsoluteFill>

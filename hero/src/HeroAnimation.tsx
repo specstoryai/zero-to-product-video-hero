@@ -5,6 +5,7 @@ import {TimeTransition} from './scenes/2-TimeTransition';
 import {ModernDeveloper} from './scenes/3-ModernDeveloper';
 import {IntentOverlay} from './scenes/4-IntentOverlay';
 import {BenefitsAndLogos} from './scenes/5-BenefitsAndLogos';
+import {HistoricalComparison} from './scenes/6-HistoricalComparison';
 import {colors} from './styles/design-tokens';
 
 export const HeroAnimation: React.FC = () => {
@@ -34,6 +35,11 @@ export const HeroAnimation: React.FC = () => {
         {/* Scene 4: Benefits and Logos (630-1170 frames / 18 seconds) */}
         <Series.Sequence durationInFrames={540}>
           <BenefitsAndLogos />
+        </Series.Sequence>
+        
+        {/* Scene 5: Historical Comparison (1170-1470 frames / 10 seconds) */}
+        <Series.Sequence durationInFrames={300}>
+          <HistoricalComparison />
         </Series.Sequence>
       </Series>
     </AbsoluteFill>

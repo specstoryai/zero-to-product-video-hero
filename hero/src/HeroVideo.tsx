@@ -8,7 +8,7 @@ export const HeroVideo: React.FC = () => {
       <Composition
         id="HeroVideo"
         component={HeroAnimation}
-        durationInFrames={1170} // 39 seconds at 30fps
+        durationInFrames={1470} // 49 seconds at 30fps
         fps={30}
         width={1920}
         height={1080}
